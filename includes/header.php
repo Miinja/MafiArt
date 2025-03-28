@@ -5,6 +5,12 @@
                         <img src="assets/images/logo.png" alt="MafiArt Logo">
                     </a>
                 </div>
+                <input type="checkbox" id="burger-toggle">
+                <label for="burger-toggle" class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
                 <nav class="navbar">
                     <ul class="navbar-list">
                         <li><a href="index.php?page=team" class="navbar-link">Meet the team</a></li>

@@ -47,7 +47,7 @@
     .loader-content {
         text-align: center;
         font-family: 'Florisa', sans-serif;
-        font-size: 3rem;
+        font-size: 3vi;
         color: rgb(255, 255, 255);
     }
 
@@ -119,9 +119,7 @@
         padding: 0;
     }
 
-
     /***** Dropdown *****/
-
 
         .dropdown {
             display: block;
@@ -156,7 +154,7 @@
             text-decoration: none;
             color: white;
             font-size: 2vi;
-            padding: 10px 15px;
+            padding: 10px 1.3vi;
             border: 2px solid transparent;
             border-radius: 10px;
             transition: all 0.3s ease;
@@ -175,6 +173,137 @@
         .dropdown-link:hover {
             transform: scale(1.05);
         }
+
+    /***** Menu Burger *****/
+
+    #burger-toggle {
+        display: none;
+    }
+
+    @media (max-width: 900px) {
+        .navbar {
+            display: none;
+            flex-direction: column;
+            width: 97.7%;
+            background-color: black;
+            padding: 20px 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            border-radius: 0;
+        }
+
+        #burger-toggle:checked ~ .navbar {
+            display: flex;
+        }
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 5px;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            background-color: black; /* Cercle noir */
+            border-radius: 50%; /* Forme circulaire */
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+    
+        .burger-menu span {
+            display: block;
+            width: 50%; /* Largeur des lignes */
+            height: 4px; /* Épaisseur des lignes */
+            background-color: white; /* Couleur blanche pour ressortir */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .burger-menu span:nth-child(1) {
+            transform: translateY(10px);
+        }
+        .burger-menu span:nth-child(2) {
+            transform: translateY(0px);
+        }
+        
+        .burger-menu span:nth-child(3) {
+            transform: translateY(-10px);
+        }
+        
+
+        #burger-toggle:checked + .burger-menu span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #burger-toggle:checked + .burger-menu span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #burger-toggle:checked + .burger-menu span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        .close-menu {
+            display: none;
+            align-self: flex-end;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #burger-toggle:checked ~ .navbar .close-menu {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: static;
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+            margin: 10px 0 0 20px;
+            padding: 0;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .navbar li.active .dropdown {
+            display: block;
+        }
+
+        .navbar-list {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar-link {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-link {
+            padding: 5px 20px;
+            font-size: 1.3rem;
+        }
+    }
+
 
 /******************/
 /***** Footer *****/
