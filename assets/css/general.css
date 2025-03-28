@@ -1,0 +1,207 @@
+
+/************************/
+/***** Imported Fonts *****/
+/************************/
+
+    @font-face {
+        font-family: 'Florisa';
+        src: url('../fonts/Florisa.otf') format('opentype');
+    }
+    @font-face {
+        font-family: 'Lostar';
+        src: url('../fonts/Lostar.ttf') format('opentype');
+    }
+
+/******************/
+/***** General *****/
+/******************/
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url('../images/background.jpg');
+        height: 100vh;
+    }
+
+/******************/
+/***** Loader *****/
+/******************/
+
+    .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        z-index: 10;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .loader-content {
+        text-align: center;
+        font-family: 'Florisa', sans-serif;
+        font-size: 3rem;
+        color: rgb(255, 255, 255);
+    }
+
+    .pulsing-text {
+        animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.01);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+/******************/
+/***** Navbar *****/
+/******************/
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 25px;
+    }
+    
+    .logo img {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        font-family: 'Lostar', sans-serif;
+        background-color: black;
+    }
+
+    .navbar-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /***** Dropdown *****/
+
+
+        .dropdown {
+            display: block;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            background-color: black;
+            list-style-type: none;
+        }
+
+        .navbar li:hover .dropdown,
+        .navbar li.active .dropdown {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+    
+        .navbar li > .navbar-link {
+            cursor: pointer;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: white;
+            font-size: 2vi;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-link {
+            display: block;
+            font-size: 1.5vi;
+            text-decoration: none;
+            color: white;
+            padding: 0 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-link:hover {
+            transform: scale(1.05);
+        }
+
+/******************/
+/***** Footer *****/
+/******************/
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 15px;
+        background-color: black;
+        color: white;
+        font-family: 'Florisa', sans-serif;
+        text-align: center;
+    }
+
+    .footer-link {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+        border-color: white;
+    }
